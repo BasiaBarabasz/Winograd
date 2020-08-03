@@ -1,0 +1,6 @@
+# artifacts to ignore
+bin/*
+.project
+.DS_Store
+*Mat*.txt
+!matrix_input/*Mat*.txt
