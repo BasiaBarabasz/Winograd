@@ -221,11 +221,11 @@ int main(int argc, char* argv[]) {
   // matrix G in single precision
   Matrix<float> G1(n_i, Row<float>(n_h));
   // matrix G^T in single precision
-  Matrix<float> G1T(n_i, Row<float>(n_h));
+  Matrix<float> G1T(n_h, Row<float>(n_i));
   // matrix G in double precision
   Matrix<double> G1d(n_i, Row<double>(n_h));
   // matrix G^T in double precision
-  Matrix<double> G1Td(n_i, Row<double>(n_h));
+  Matrix<double> G1Td(n_h, Row<double>(n_i));
   // matrix B^T in single precision
   Matrix<float> B1T(n_i, Row<float>(n_i));
   // matrix B in single precision
@@ -237,11 +237,11 @@ int main(int argc, char* argv[]) {
   // matrix A^T in single precision
   Matrix<float> A1T(n_o, Row<float>(n_i));
   // matrix A in single precision
-  Matrix<float> A1(n_o, Row<float>(n_i));
+  Matrix<float> A1(n_i, Row<float>(n_o));
   // matrix A^T in double precision
   Matrix<double> A1Td(n_o, Row<double>(n_i));
   // matrix A in double precision
-  Matrix<double> A1d(n_o, Row<double>(n_i));
+  Matrix<double> A1d(n_i, Row<double>(n_o));
 
   // Winograd convolution
   Matrix<float> G(n_i, Row<float>(n_h));
@@ -324,7 +324,7 @@ int main(int argc, char* argv[]) {
 
   G1T = transp<float>(G1, n_i, n_h);
   G1Td = transp<double>(G1d, n_i, n_h);
-
+  
   B1 = transp<float>(B1T, n_i, n_i);
   B1d = transp<double>(B1Td, n_i, n_i);
 
